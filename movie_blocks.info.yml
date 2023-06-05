@@ -1,0 +1,5 @@
+name: 'Movie Blocks'
+type: module
+description: 'Movie'
+core_version_requirement: ">=10"
+package: TMDB Blocks

@@ -1,0 +1,25 @@
+{# movie_blocks/templates/popular_movies.html.twig #}
+<h2>Films populaires</h2>
+<style>
+
+  .movies-wrapper {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 20px;
+    grid-auto-rows: minmax(100px, auto);
+  }
+
+</style>
+<div class="movies-wrapper">
+  {# Creation of an image #}
+  {% for movie in data %}
+    <a href="/movie/{{ movie.id }}">
+      <div style="min-width: 150px; max-width: 150px;">
+        <img
+          src="https://www.themoviedb.org/t/p/original{{ movie.poster_path }}">
+        <p>{{ movie.title }}</p>
+      </div>
+    </a>
+  {% endfor %}
+
+</div>

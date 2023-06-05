@@ -1,0 +1,33 @@
+<style>
+  .main-content-current-movie {
+    display: flex;
+  }
+  .main-poster {
+    max-width: 300px;
+    margin-right: 20px;
+  }
+  .release-year {
+    color: #75767b;
+  }
+</style>
+<div class="main-content-current-movie">
+  <img src="https://www.themoviedb.org/t/p/original{{ data.poster_path }}"
+       class="main-poster">
+  <div>
+    <h2 style="margin-bottom: 0">{{ data.title }} <span
+        class="release-year">({{ data.release_date|slice(0, 4) }})</span></h2>
+    <p style="margin-top: 0"><i>{{ data.tagline }}</i></p>
+    <hr>
+    <p>{{ data.overview }}</p>
+    <hr>
+    {% if data.flatrate|length > 0 %}
+      <p> Disponible sur
+        {% for provider in data.flatrate %}
+          {{ provider.provider_name }},
+        {% endfor %}
+      </p>
+    {% else %}
+      <p>Uniquement disponible au cinéma</p>
+    {% endif %}
+  </div>
+</div>

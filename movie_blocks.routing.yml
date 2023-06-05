@@ -1,0 +1,7 @@
+movie_blocks.movie:
+  path: '/movie/{id}'
+  defaults:
+    _controller: '\Drupal\movie_blocks\Controller\MovieController::viewMovie'
+    _title: "Movie"
+  requirements:
+    _permission: 'access content'
